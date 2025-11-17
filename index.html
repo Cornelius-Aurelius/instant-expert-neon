@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instant Expert Advisor — Neon Edition</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
+        background: #000000;
+        color: #d6e6ff;
+    }
+
+    header {
+        text-align: center;
+        padding: 35px 20px;
+        font-size: 34px;
+        font-weight: bold;
+        background: #000000;
+        color: #00aaff;
+        text-shadow: 0 0 10px #0099ff, 0 0 20px #00ccff;
+        border-bottom: 2px solid #00aaff;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 50px auto;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 35px;
+        border-radius: 16px;
+        box-shadow: 0 0 25px #0088ff66;
+        border: 1px solid #00aaff55;
+    }
+
+    h2 {
+        color: #00c8ff;
+        margin-bottom: 20px;
+        text-shadow: 0 0 8px #00aaff;
+    }
+
+    textarea {
+        width: 100%;
+        height: 130px;
+        padding: 14px;
+        background: #0b0f13;
+        border: 1px solid #00aaff;
+        border-radius: 10px;
+        color: #d6e6ff;
+        font-size: 17px;
+        resize: none;
+        box-shadow: inset 0 0 10px #003355;
+    }
+
+    textarea::placeholder {
+        color: #88bde6;
+    }
+
+    button {
+        width: 100%;
+        padding: 16px;
+        margin-top: 18px;
+        font-size: 20px;
+        background: #00aaff;
+        color: #000;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        text-shadow: 0 0 5px #88e6ff;
+        box-shadow: 0 0 15px #00c8ff, inset 0 0 10px #004466;
+    }
+
+    button:hover {
+        background: #00cfff;
+        box-shadow: 0 0 20px #00eaff, inset 0 0 15px #005577;
+    }
+
+    .output {
+        margin-top: 35px;
+        padding: 20px;
+        background: #04070b;
+        border-radius: 12px;
+        border: 1px solid #0077aa;
+        box-shadow: inset 0 0 15px #002233, 0 0 20px #00669966;
+        color: #d6e6ff;
+        font-size: 17px;
+        line-height: 1.6;
+        white-space: pre-wrap;
+    }
+
+    footer {
+        text-align: center;
+        padding: 25px;
+        margin-top: 60px;
+        font-size: 15px;
+        background: #000000;
+        color: #00aaff;
+        border-top: 1px solid #004466;
+        text-shadow: 0 0 10px #0088ff;
+    }
+
+    footer a {
+        color: #33ddff;
+        font-weight: bold;
+        text-decoration: none;
+        text-shadow: 0 0 8px #00ccff;
+    }
+
+    footer a:hover {
+        color: #88eeff;
+        text-shadow: 0 0 12px #00ffff;
+    }
+</style>
+</head>
+
+<body>
+
+<header>INSTANT EXPERT ADVISOR — NEON EDITION</header>
+
+<div class="container">
+    <h2>Ask anything. Receive structured expert insights instantly.</h2>
+
+    <textarea id="userInput" placeholder="Type your question here..."></textarea>
+    <button onclick="generateAnswer()">Generate Expert Response</button>
+
+    <div id="output" class="output" style="display:none;"></div>
+</div>
+
+<footer>
+    Created by 
+    <a href="https://zenodo.org/records/17362534" target="_blank">
+        CORNELIUS AURELIUS
+    </a>  
+    — Illuminating Knowledge
+</footer>
+
+<script>
+function generateAnswer() {
+    const input = document.getElementById("userInput").value.trim();
+    const outputBox = document.getElementById("output");
+
+    if (!input) {
+        alert("Please enter a question first.");
+        return;
+    }
+
+    const frameworks = [
+        "1. **Summary**\n- {summary}\n\n",
+        "2. **Key Factors**\n- {f1}\n- {f2}\n- {f3}\n\n",
+        "3. **Step-by-Step Plan**\n1. {step1}\n2. {step2}\n3. {step3}\n\n",
+        "4. **Risks & Solutions**\n- Risk: {risk1}\n  Solution: {sol1}\n- Risk: {risk2}\n  Solution: {sol2}\n\n",
+        "5. **Optimized Recommendation**\n- {rec}\n\n"
+    ];
+
+    const seeds = {
+        summary: [
+            `Your question explores: "${input}".`,
+            `The core essence of your query relates to "${input}".`,
+            `"${input}" represents a multi-layered problem requiring structured breakdown.`
+        ],
+        f1: ["Underlying constraints", "Resource limitations", "Structural complexity"],
+        f2: ["Knowledge gaps", "Skill requirements", "System dependencies"],
+        f3: ["Possible inefficiencies", "Risk of failure", "Long-term implications"],
+        step1: ["Clarify the core goal", "Outline all moving parts", "Define constraints"],
+        step2: ["Remove noise and simplify", "Select methods strategically", "Prioritize high-value actions"],
+        step3: ["Execute with iteration", "Measure precisely", "Adjust rapidly"],
+        risk1: ["Ambiguous objectives", "Overcomplication", "Missing data"],
+        sol1: ["Redefine scope", "Simplify the model", "Collect foundational metrics"],
+        risk2: ["False assumptions", "External variability", "Resource shortages"],
+        sol2: ["Validate step-by-step", "Increase adaptability", "Use modular planning"],
+        rec: [
+            "Begin with a minimal model and iterate quickly.",
+            "Use fast prototyping and structured feedback loops.",
+            "Optimize for clarity, speed, and measurable outcomes."
+        ]
+    };
+
+    const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+
+    let finalResponse = "";
+    frameworks.forEach(section => {
+        finalResponse += section
+            .replace("{summary}", pick(seeds.summary))
+            .replace("{f1}", pick(seeds.f1))
+            .replace("{f2}", pick(seeds.f2))
+            .replace("{f3}", pick(seeds.f3))
+            .replace("{step1}", pick(seeds.step1))
+            .replace("{step2}", pick(seeds.step2))
+            .replace("{step3}", pick(seeds.step3))
+            .replace("{risk1}", pick(seeds.risk1))
+            .replace("{sol1}", pick(seeds.sol1))
+            .replace("{risk2}", pick(seeds.risk2))
+            .replace("{sol2}", pick(seeds.sol2))
+            .replace("{rec}", pick(seeds.rec));
+    });
+
+    outputBox.style.display = "block";
+    outputBox.textContent = finalResponse;
+}
+</script>
+
+</body>
+</html>
