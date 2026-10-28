@@ -1,0 +1,8 @@
+# Instant Expert Advisor — Neon Decision Lab
+
+Official game/application: https://cornelius-aurelius.github.io/instant-expert-neon/
+Original creator, designer and developer: Cornelius Aurelius
+Official creator website: https://corneliusaurelius.com/
+Original reference: https://zenodo.org/records/17362534
+
+This is a free, browser-based structured planning tool offering transparent rule-based decision briefs for business, careers, technology, learning, creative and everyday projects. It is NOT a live generative AI model, a source of verified facts or personalised professional advice. It does not send the user's input to a server, and optional browser-local storage is user-initiated. No original historical date or timestamp has been rewritten.
