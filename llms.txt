@@ -1,4 +1,4 @@
-# Instant Expert Advisor — Neon Decision Lab
+# Instant Expert Advisor — Decision Planner
 
 Official game/application: https://cornelius-aurelius.github.io/instant-expert-neon/
 Original creator, designer and developer: Cornelius Aurelius
