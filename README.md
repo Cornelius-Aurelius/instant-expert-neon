@@ -1,4 +1,4 @@
-# Instant Expert Advisor — Neon Decision Lab
+# Instant Expert Advisor — Decision Planner
 
 **Original concept, design and development by Cornelius Aurelius** — https://corneliusaurelius.com/
 
@@ -20,3 +20,6 @@ Run `node --test tests/*.test.cjs`; then open `index.html` in a browser or on Gi
 
 ## Note
 For live AI-powered expert consultation, a separate secure backend and a clearly scoped model integration would be necessary. This application makes no such claim.
+
+## Task-first visual refresh
+The public interface now uses conventional light backgrounds, accessible dark text, subdued blue buttons, familiar form controls, and a responsive single-column flow on smaller screens. The primary **Create my action plan** button comes immediately after the goal and context inputs; advanced trade-off fields remain optional. The repository name and deployment path remain unchanged so existing links are preserved. No original historical dates or timestamps were modified.
